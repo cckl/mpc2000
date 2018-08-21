@@ -1,0 +1,74 @@
+.container {
+  background-color: rgb(199, 219, 250);
+  padding: 8em;
+}
+
+.mpc-body {
+  text-align: center;
+  background-color: rgb(249, 244, 236);
+  position: relative;
+  margin: auto;
+  padding: 1em;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 45em;
+  height: 35em;
+  grid-template-columns: 50% 50%;
+}
+
+.left-side {
+  border: 1px solid red;
+  grid-template-rows: 25% 15% 35% 25%;
+}
+
+.screen {
+  justify-self: center;
+  background-color: rgb(37, 37, 37);
+  height: 8em;
+  width: 20em;
+}
+
+.right-side {
+  border: 1px solid blue;
+  grid-template-rows: 11% 24% 65%;
+}
+
+.brand {
+  grid-template-columns: 50% 50%;
+  border: 1px solid purple;
+}
+
+.right-ctrl {
+  background-color: rgb(197, 198, 197);
+  margin: 0.5em;
+}
+
+.pads {
+  justify-self: stretch;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 25% 25% 25% 25%;
+  background-color: rgb(197, 198, 197);
+  padding: 0.5em;
+  margin: 0.5em
+}
+
+.pad {
+  background-color: rgb(163, 162, 162);
+  text-align: center;
+  place-self: stretch;
+  margin: 0.25em;
+  padding-top: 1.3em;
+  border-radius: 3px;
+}
+
+.thick-border {
+  border: 3px solid rgb(61, 60, 61);
+}
+
+.grid {
+  display: grid;
+}
+
+.br-2 {
+  border-radius: 2px;
+}
