@@ -1,9 +1,13 @@
-.container {
-  background-color: rgb(199, 219, 250);
-  padding: 8em;
+:root {
+  --button-shadow: 0.1em 0.1em rgb(130, 128, 128);
 }
 
-.mpc-body {
+#container {
+  background-color: rgb(199, 219, 250);
+  padding: 4em 8em;
+}
+
+#mpc-body {
   text-align: center;
   background-color: rgb(249, 244, 236);
   position: relative;
@@ -16,11 +20,19 @@
   grid-template-columns: 50% 50%;
 }
 
-.left-side {
+.button {
+  box-shadow: var(--button-shadow);
+  border: 1px solid rgb(183, 185, 182);
+  border-radius: 2px;
+}
+
+/* left side of MPC */
+#left-side {
   grid-template-rows: 25% 10% 30% 35%;
 }
 
-.screen {
+/* screen and display */
+#screen {
   justify-self: center;
   background-color: rgb(37, 37, 37);
   height: 8em;
@@ -29,7 +41,7 @@
   box-shadow: 0 0 1em 0.1em rgb(148, 148, 148);
 }
 
-.display {
+#display {
   text-align: center;
   margin: auto;
   background-color: rgb(183, 185, 182);
@@ -37,56 +49,56 @@
   width: 12em;
 }
 
-.left-side .button-line {
+/* buttons under screen */
+#button-line {
   grid-template-columns: 1/6;
   padding: 0.5em;
 }
 
-.left-side .button-line .button {
+#button-line .button {
   display: inline-grid;
   background-color: rgb(249, 244, 236);
   width: 2em;
   height: 0.8em;
   place-self: center;
   border: 1px solid rgb(183, 185, 182);
-  box-shadow: 0.1em 0.1em rgb(130, 128, 128);
 }
 
-.left-side .mid-panel {
+/* middle panel with buttons and dial */
+#mid-panel {
   grid-template-columns: 50% 50%;
   display: grid;
 }
 
-.left-side .button-grid {
+#button-grid {
   display: grid;
   grid-template-columns: 33% 33% 33%;
   grid-template-rows: 33% 33% 33%;
   padding: 0.5em;
 }
 
-.left-side .button-grid .button {
+.button-blue {
   background-color: rgb(14, 66, 113);
   border-radius: 2px;
   width: 2em;
   height: 1em;
   place-self: center;
-  box-shadow: 0.1em 0.1em rgb(130, 128, 128);
+  box-shadow: var(--button-shadow);
 }
 
-.left-side .dial-panel {
+#dial-panel {
   grid-template-rows: 20% 80%;
   display: grid;
 }
 
-.left-side .dial-panel .button {
+#dial-panel .button {
   display: inline-grid;
   width: 2em;
   height: 1em;
   margin: 1em;
-  box-shadow: 0.1em 0.1em 0 rgb(130, 128, 128);
 }
 
-.left-side .dial-panel .dial {
+#dial {
   background-color: rgb(64, 63, 63);
   border-radius: 50%;
   height: 8em;
@@ -95,35 +107,71 @@
   box-shadow: 0.2em 0.1em 0.1em 0.2em rgb(48, 48, 48)
 }
 
-.left-side .bottom-panel {
+#dial-inner-2 {
+  position: relative;
+  background-color: rgb(85, 85, 85);
+  border-radius: 50%;
+  height: 2.5em;
+  width: 2.5em;
+  box-shadow: inset -0.2em 0.1em 0.3em 0.3em rgb(57, 57, 57);
+  margin-left: 2.7em;
+  margin-top: -6em;
+}
+
+#dial-inner-1 {
+  border: 2px solid rgb(48, 48, 48);
+  border-radius: 50%;
+  height: 5.3em;
+  width: 5.3em;
+  margin-left: 3em;
+  margin-top: -6.8em;
+  box-shadow: 0 0 0.1em 0.1em rgb(48, 48, 48)
+}
+
+/* bottom panel with slider and buttons */
+#bottom-panel {
   display: grid;
   grid-template-columns: [first] 25% [line2] 15% [line3] 15% [line4] 15% [line5] 15% [line6] 15% [end];
   grid-template-rows: 50% 25% 25%;
   margin-top: 0.5em;
 }
 
-.left-side .bottom-panel .slider {
+/* slider */
+#slider {
+  display: grid;
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 4;
 }
 
-.left-side .bottom-panel .slider .slider-bar {
+#slider-bar {
   background-color: rgb(78, 77, 77);
   width: 0.3em;
-  height: 10em;
+  height: 9em;
   margin: auto;
-  z-index: 100;
-  place-self: center;
+  z-index: 1;
 }
 
-.left-side .bottom-panel .buttons-bigger {
+#slider-knob {
+  position: relative;
+  width: 2.3em;
+  height: 1.5em;
+  background-color: rgb(249, 244, 236);
+  border: 1px solid rgb(120, 119, 119);
+  z-index: 2;
+  margin-top: -5em;
+  margin-left: 1.6em;
+  box-shadow: 0 0 0.2em 0.05em rgb(130, 128, 128);
+
+}
+
+#buttons-1 {
   grid-column-start: 2;
   grid-column-end: 4;
 }
 
-.left-side .bottom-panel .buttons-bigger .button {
+#buttons-1 .button {
   display: inline-grid;
   border: 1px solid rgb(183, 185, 182);
   background-color: rgb(249, 244, 236);
@@ -131,61 +179,62 @@
   height: 1em;
   place-self: center;
   margin-top: 1.5em;
-  box-shadow: 0.1em 0.1em 0 rgb(130, 128, 128);
 }
 
-.left-side .bottom-panel .arrows {
+/* arrow selector */
+#arrows {
   grid-column-start: 4;
   grid-column-end: 7;
 }
 
-.left-side .bottom-panel .arrow {
+#arrow {
   border: 1px solid rgb(183, 185, 182);
   background-color: rgb(249, 244, 236);
   width: 4em;
   height: 3em;
   justify-self: center;
   margin: 1.5em auto;
-  box-shadow: 0.1em 0.1em 0 rgb(130, 128, 128);
 }
 
-.left-side .bottom-panel .buttons-t {
+/* 2nd to bottom row of buttons */
+#buttons-t {
   grid-column-start: 2;
   grid-column-end: 7;
   grid-row-start: 2;
   grid-row-end: 3;
 }
 
-.left-side .bottom-panel .buttons-t .button {
+#buttons-t .button {
   display: inline-grid;
   width: 2.3em;
   height: 0.8em;
   margin: 0.2em;
   place-self: center;
-  box-shadow: 0.1em 0.1em 0 rgb(130, 128, 128);
 }
 
-.left-side .bottom-panel .buttons-b {
+/* bottom row of buttons */
+#buttons-b {
   grid-column-start: 2;
   grid-column-end: 7;
   grid-row-start: 3;
   grid-row-end: 4;
 }
 
-.left-side .bottom-panel .buttons-b .button {
+#buttons-b .button {
   display: inline-grid;
   width: 2.3em;
   height: 1.7em;
   margin: 0.2em;
   place-self: end;
-  box-shadow: 0.1em 0.1em 0 rgb(130, 128, 128);
 }
 
-.right-side {
+/* right side of MPC */
+#right-side {
   grid-template-rows: 11% 24% 65%;
 }
 
-.brand {
+/* akai logo and MPC model */
+#brand {
   grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
   position: relative;
@@ -215,22 +264,23 @@
   font: 0.7em 'Orbitron', sans-serif;
 }
 
-.right-ctrl {
+/* right side control panel */
+#right-ctrl {
   background-color: rgb(197, 198, 197);
   margin: 0.5em;
   grid-template-columns: 25% 25% 25% 25%;
   grid-auto-rows: auto;
+  box-shadow: inset -1em 1em 2em 2em rgb(180, 180, 180);
 }
 
-.right-ctrl .button {
+#right-ctrl .button {
   background-color: rgb(249, 244, 236);
   width: 2.5em;
   height: 1.2em;
   place-self: center;
-  box-shadow: 0.1em 0.1em 0 rgb(130, 128, 128);
 }
 
-.right-ctrl .knob {
+#right-ctrl .knob {
   border-radius: 50%;
   width: 2.5em;
   height: 2.5em;
@@ -239,7 +289,8 @@
   box-shadow: 0.3em 0.3em 0.1em 0.1em rgb(130, 128, 128);
 }
 
-.pads {
+/* drum pads  */
+#pads {
   justify-self: stretch;
   grid-template-columns: 25% 25% 25% 25%;
   grid-template-rows: 25% 25% 25% 25%;
@@ -259,12 +310,27 @@
   box-shadow: 2px 2px 0 rgb(75, 75, 75);
 }
 
+/* button and key presses */
+
 .pressed {
   transform: scale(0.92);
   transform: translateY(3px) translateX(1px);
   box-shadow: inset 0.1em 0.1em 0.5em 0.1em rgb(75, 75, 75);
 }
 
+.btn-pressed {
+  transform: scale(0.92);
+  transform: translateY(3px) translateX(1px);
+}
+
+/* footer */
+footer {
+  font: 1em 'Dosis', sans-serif;
+  padding-top: 2em;
+  text-align: center;
+}
+
+/* modular properties */
 .grid {
   display: grid;
 }

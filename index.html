@@ -2,23 +2,25 @@
 
 <head>
   <link rel="stylesheet" href="main.css">
-  <link href="https://fonts.googleapis.com/css?family=Cousine|Orbitron|Suez+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cousine|Orbitron|Suez+One|Dosis" rel="stylesheet">
 </head>
 
 <body>
 
-  <div class="container">
+  <div id="container">
+    <div id="mpc-body" class="grid">
 
-    <div class="mpc-body grid">
+      <!-- left side of MPC -->
+      <div id="left-side" class="grid">
 
-      <div class="left-side grid">
-
-        <div class="screen br-2">
-          <div class="display">
+        <!-- screen and display -->
+        <div id="screen" class="grid br-2">
+          <div id="display" class="br-2">
           </div>
         </div>
 
-        <div class="button-line">
+        <!-- buttons under screen -->
+        <div id="button-line">
           <div class="button"></div>
           <div class="button"></div>
           <div class="button"></div>
@@ -27,86 +29,85 @@
           <div class="button"></div>
         </div>
 
-        <div class="mid-panel">
-
-          <div class="button-grid">
-            <div class="button"></div>
-            <div class="button"></div>
-            <div class="button"></div>
-            <div class="button"></div>
-            <div class="button"></div>
-            <div class="button"></div>
-            <div class="button"></div>
-            <div class="button"></div>
-            <div class="button"></div>
+        <!-- middle panel -->
+        <div id="mid-panel" class="grid">
+          <div id="button-grid">
+            <div class="button-blue"></div>
+            <div class="button-blue"></div>
+            <div class="button-blue"></div>
+            <div class="button-blue"></div>
+            <div class="button-blue"></div>
+            <div class="button-blue"></div>
+            <div class="button-blue"></div>
+            <div class="button-blue"></div>
+            <div class="button-blue"></div>
           </div>
-
-          <div class="dial-panel">
-            <span><div class="button bg-white sm-button"></div><div class="button bg-orange"></div><span>
-            <div class="dial"></div>
+          <div id="dial-panel">
+            <span>
+              <div class="button bg-white sm-button"></div>
+              <div class="button bg-orange"></div>
+            </span>
+            <div id="dial"></div>
+            <div id="dial-inner-2"></div>
+            <div id="dial-inner-1"></div>
           </div>
-
         </div>
 
-
-        <div class="bottom-panel">
-          <div class="slider">
-      
-            <div class="slider-bar"></div>
+        <!-- bottom panel -->
+        <div id="bottom-panel">
+          <div id="slider">
+            <div id="slider-bar"></div>
+            <div id="slider-knob" class="br-2"></div>
           </div>
-
-          <div class="buttons-bigger">
+          <div id="buttons-1">
             <div class="button"></div>
             <div class="button"></div>
           </div>
-
-          <div class="arrows">
-            <div class="arrow">>></div>
+          <div id="arrows">
+            <div id="arrow" class="button cousine">
+              <p>>></p>
+            </div>
           </div>
-
-          <div class="buttons-t">
+          <div id="buttons-t">
             <div class="button sm-button"></div>
             <div class="button sm-button"></div>
-            <div class="button sm-button"></div>
-            <div class="button sm-button"></div>
-            <div class="button sm-button"></div>
-          </div>
-
-          <div class="buttons-b">
-            <div class="button bg-red"></div>
-            <div class="button bg-red"></div>
             <div class="button sm-button"></div>
             <div class="button sm-button"></div>
             <div class="button sm-button"></div>
           </div>
-
-
+          <div id="buttons-b">
+            <div class="button bg-red br-2"></div>
+            <div class="button bg-red br-2"></div>
+            <div class="button sm-button"></div>
+            <div class="button sm-button"></div>
+            <div class="button sm-button"></div>
+          </div>
         </div>
-
-
-
-
       </div>
 
-      <div class="right-side grid">
-        <div class="brand grid">
+      <!-- right side of MPC -->
+      <div id="right-side" class="grid">
+
+        <!-- akai logo and model -->
+        <div id="brand" class="grid">
           <div id="akai">AKAI</div>
           <div id="model">MPC2000XL</div>
           <div id="akai-pro">professional</div>
           <div id="underline">MIDI PRODUCTION CENTER</div>
         </div>
 
-        <div class="right-ctrl grid br-2">
+        <!-- right control panel -->
+        <div id="right-ctrl" class="grid br-2">
           <div class="button br-2"></div>
           <div class="button br-2"></div>
           <div class="knob bg-salmon"></div>
           <div class="knob bg-white"></div>
           <div class="button br-2"></div>
           <div class="button br-2"></div>
-
         </div>
-        <div class="pads grid br-2 cousine">
 
+        <!-- drum pads -->
+        <div id="pads" class="grid br-2 cousine">
           <div class="pad" data-key="85">U</div>
           <div class="pad" data-key="73">I</div>
           <div class="pad" data-key="79">O</div>
@@ -115,7 +116,6 @@
           <div class="pad" data-key="74">J</div>
           <div class="pad" data-key="75">K</div>
           <div class="pad" data-key="76">L</div>
-
           <div class="pad" data-key="81">Q</div>
           <div class="pad" data-key="87">W</div>
           <div class="pad" data-key="69">E</div>
@@ -124,15 +124,15 @@
           <div class="pad" data-key="83">S</div>
           <div class="pad" data-key="68">D</div>
           <div class="pad" data-key="70">F</div>
-
         </div>
       </div>
       </div>
 
+    <footer>
+      <p>Created with 🌞 by Christina Ling <footer>
+    </footer>
 
   </div>
-
-
 
   <script type="text/javascript" src="main.js">
   </script>

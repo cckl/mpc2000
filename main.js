@@ -1,4 +1,5 @@
 const pads = document.querySelectorAll('.pad')
+const buttons = document.querySelectorAll('.button')
 const kick1 = new Audio('https://mpc2000.nyc3.digitaloceanspaces.com/kick1.mp3')
 const kick2 = new Audio('https://mpc2000.nyc3.digitaloceanspaces.com/kick3.mp3')
 const snare1 = new Audio('https://mpc2000.nyc3.digitaloceanspaces.com/snare3.mp3')
@@ -36,8 +37,8 @@ const sounds = [kick1, kick2, snare1, snare2, clap1, clap2, hat1, hat2, block1, 
 //   F: {'sound': snare2, name: 'Snare 2'}
 // }
 
+// Trigger sounds
 document.addEventListener('keydown', keyPress)
-
 function keyPress(e) {
   let key = document.querySelector(`.pad[data-key='${event.which}']`);
   if (key === null) { return; }
@@ -114,6 +115,7 @@ function keyPress(e) {
   }
 }
 
+// Remove pressed CSS class
 document.addEventListener('keyup', removePressed)
 
 function removePressed() {
@@ -121,3 +123,21 @@ function removePressed() {
   if (key === null) { return; }
   else { key.classList.remove('pressed'); }
 }
+
+// Clicks for buttons
+
+function pressBtn(e) {
+  e.target.classList.add('btn-pressed');
+}
+
+buttons.forEach(function(button) {
+  button.addEventListener('click', pressBtn)
+})
+
+function removeBtnPress(e) {
+  e.target.classList.remove('btn-pressed')
+}
+
+buttons.forEach(function(button) {
+  button.addEventListener('transitionend', removeBtnPress)
+})
