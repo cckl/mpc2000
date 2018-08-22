@@ -8,8 +8,8 @@
   background-color: rgb(249, 244, 236);
   position: relative;
   margin: auto;
-  padding: 1em;
-  border: 2px solid black;
+  padding: 1.5em;
+  border: 2px solid blackrgb(175, 170, 158);
   border-radius: 5px;
   width: 45em;
   height: 35em;
@@ -17,8 +17,7 @@
 }
 
 .left-side {
-  border: 1px solid red;
-  grid-template-rows: 25% 15% 35% 25%;
+  grid-template-rows: 25% 10% 30% 35%;
 }
 
 .screen {
@@ -26,21 +25,218 @@
   background-color: rgb(37, 37, 37);
   height: 8em;
   width: 20em;
+  display: grid;
+  box-shadow: 0 0 1em 0.1em rgb(148, 148, 148);
+}
+
+.display {
+  text-align: center;
+  margin: auto;
+  background-color: rgb(183, 185, 182);
+  height: 6em;
+  width: 12em;
+}
+
+.left-side .button-line {
+  grid-template-columns: 1/6;
+  padding: 0.5em;
+}
+
+.left-side .button-line .button {
+  display: inline-grid;
+  background-color: rgb(249, 244, 236);
+  width: 2em;
+  height: 0.8em;
+  place-self: center;
+  border: 1px solid rgb(183, 185, 182);
+  box-shadow: 0.1em 0.1em rgb(130, 128, 128);
+}
+
+.left-side .mid-panel {
+  grid-template-columns: 50% 50%;
+  display: grid;
+}
+
+.left-side .button-grid {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 33% 33% 33%;
+  padding: 0.5em;
+}
+
+.left-side .button-grid .button {
+  background-color: rgb(14, 66, 113);
+  border-radius: 2px;
+  width: 2em;
+  height: 1em;
+  place-self: center;
+  box-shadow: 0.1em 0.1em rgb(130, 128, 128);
+}
+
+.left-side .dial-panel {
+  grid-template-rows: 20% 80%;
+  display: grid;
+}
+
+.left-side .dial-panel .button {
+  display: inline-grid;
+  width: 2em;
+  height: 1em;
+  margin: 1em;
+  box-shadow: 0.1em 0.1em 0 rgb(130, 128, 128);
+}
+
+.left-side .dial-panel .dial {
+  background-color: rgb(64, 63, 63);
+  border-radius: 50%;
+  height: 8em;
+  width: 8em;
+  margin: auto;
+  box-shadow: 0.2em 0.1em 0.1em 0.2em rgb(48, 48, 48)
+}
+
+.left-side .bottom-panel {
+  display: grid;
+  grid-template-columns: [first] 25% [line2] 15% [line3] 15% [line4] 15% [line5] 15% [line6] 15% [end];
+  grid-template-rows: 50% 25% 25%;
+  margin-top: 0.5em;
+}
+
+.left-side .bottom-panel .slider {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+.left-side .bottom-panel .slider .slider-bar {
+  background-color: rgb(78, 77, 77);
+  width: 0.3em;
+  height: 10em;
+  margin: auto;
+  z-index: 100;
+  place-self: center;
+}
+
+.left-side .bottom-panel .buttons-bigger {
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.left-side .bottom-panel .buttons-bigger .button {
+  display: inline-grid;
+  border: 1px solid rgb(183, 185, 182);
+  background-color: rgb(249, 244, 236);
+  width: 2em;
+  height: 1em;
+  place-self: center;
+  margin-top: 1.5em;
+  box-shadow: 0.1em 0.1em 0 rgb(130, 128, 128);
+}
+
+.left-side .bottom-panel .arrows {
+  grid-column-start: 4;
+  grid-column-end: 7;
+}
+
+.left-side .bottom-panel .arrow {
+  border: 1px solid rgb(183, 185, 182);
+  background-color: rgb(249, 244, 236);
+  width: 4em;
+  height: 3em;
+  justify-self: center;
+  margin: 1.5em auto;
+  box-shadow: 0.1em 0.1em 0 rgb(130, 128, 128);
+}
+
+.left-side .bottom-panel .buttons-t {
+  grid-column-start: 2;
+  grid-column-end: 7;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.left-side .bottom-panel .buttons-t .button {
+  display: inline-grid;
+  width: 2.3em;
+  height: 0.8em;
+  margin: 0.2em;
+  place-self: center;
+  box-shadow: 0.1em 0.1em 0 rgb(130, 128, 128);
+}
+
+.left-side .bottom-panel .buttons-b {
+  grid-column-start: 2;
+  grid-column-end: 7;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.left-side .bottom-panel .buttons-b .button {
+  display: inline-grid;
+  width: 2.3em;
+  height: 1.7em;
+  margin: 0.2em;
+  place-self: end;
+  box-shadow: 0.1em 0.1em 0 rgb(130, 128, 128);
 }
 
 .right-side {
-  border: 1px solid blue;
   grid-template-rows: 11% 24% 65%;
 }
 
 .brand {
   grid-template-columns: 50% 50%;
-  border: 1px solid purple;
+  grid-template-rows: 50% 50%;
+  position: relative;
+}
+
+#akai {
+  font: 2.5em 'Suez One', serif;
+  color: rgb(228, 24, 79);
+  place-self: center;
+}
+
+#akai-pro {
+  font: italic lighter 0.8em 'Suez One', serif;
+  color: rgb(228, 24, 79);
+  justify-self: center;
+}
+
+#model {
+  font: 1.5em 'Orbitron', sans-serif;
+  color: rgb(116, 116, 114);
+  place-self: center;
+}
+
+#underline {
+  border-top: 3px solid black;
+  padding-top: 0.5em;
+  font: 0.7em 'Orbitron', sans-serif;
 }
 
 .right-ctrl {
   background-color: rgb(197, 198, 197);
   margin: 0.5em;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-auto-rows: auto;
+}
+
+.right-ctrl .button {
+  background-color: rgb(249, 244, 236);
+  width: 2.5em;
+  height: 1.2em;
+  place-self: center;
+  box-shadow: 0.1em 0.1em 0 rgb(130, 128, 128);
+}
+
+.right-ctrl .knob {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  justify-self: center;
+  align-self: end;
+  box-shadow: 0.3em 0.3em 0.1em 0.1em rgb(130, 128, 128);
 }
 
 .pads {
@@ -57,18 +253,51 @@
   text-align: center;
   place-self: stretch;
   margin: 0.25em;
-  padding-top: 1.3em;
+  padding-top: 1.8em;
   border-radius: 3px;
+  box-shadow: inset 0 0 0.5em rgb(75, 75, 75);
+  box-shadow: 2px 2px 0 rgb(75, 75, 75);
 }
 
-.thick-border {
-  border: 3px solid rgb(61, 60, 61);
+.pressed {
+  transform: scale(0.92);
+  transform: translateY(3px) translateX(1px);
+  box-shadow: inset 0.1em 0.1em 0.5em 0.1em rgb(75, 75, 75);
 }
 
 .grid {
   display: grid;
 }
 
+.inline-grid {
+  display: inline-grid;
+}
+
 .br-2 {
   border-radius: 2px;
+}
+
+.cousine {
+  font-family: 'Cousine', monospace;
+}
+
+.bg-white {
+  background-color: rgb(249, 244, 236);
+}
+
+.bg-salmon {
+  background-color: rgb(244, 139, 177);
+}
+
+.bg-orange {
+  background-color: rgb(238, 182, 57);
+}
+
+.bg-red {
+  background-color: rgb(162, 43, 43);
+}
+
+.sm-button {
+  border: 1px solid rgb(183, 185, 182);
+  box-shadow: 0.1em 0.1em rgb(130, 128, 128);
 }
