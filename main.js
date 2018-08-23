@@ -100,6 +100,9 @@ const sounds = {
   }
 }
 
+display.innerText = "Press a key or click a pad to begin!"
+
+
 // Play sounds
 function playSound(code) {
   const sound = sounds[code].audio;
@@ -110,32 +113,39 @@ function playSound(code) {
   display.innerText = text;
 }
 
-// Trigger sounds
+// Trigger sounds on key press
 document.addEventListener('keydown', keyPress)
 
 function keyPress(e) {
-  let key = document.querySelector(`.pad[data-key='${event.which}']`);
-  let code = event.which;
+  let key = document.querySelector(`.pad[data-key='${e.keyCode}']`);
+  let code = e.keyCode;
   if (key === null) {
     return
   }
-  else {
-    key.classList.add('pressed');
-  }
+  key.classList.add('pressed');
   playSound(code);
 }
 
-// Remove pressed CSS class
-document.addEventListener('keyup', removePressed)
+// Trigger sounds on pad click
+pads.forEach(function(pad) {
+  addEventListener('click', padClick)
+})
 
-function removePressed() {
-  let key = document.querySelector(`.pad[data-key='${event.which}']`);
-  if (key === null) {
-    return
+function padClick(e) {
+  if (e.target.className === 'pad') {
+    let code = e.target.dataset.key;
+    e.target.classList.add('pressed');
+    playSound(code);
   }
-  else {
-    key.classList.remove('pressed');
-  }
+}
+
+// Remove pressed CSS class
+pads.forEach(function(pad) {
+  pad.addEventListener('transitionend', removePressed)
+})
+
+function removePressed(e) {
+  e.target.classList.remove('pressed');
 }
 
 // Clicks for buttons
@@ -147,17 +157,15 @@ buttons.forEach(function(button) {
   button.addEventListener('click', pressBtn)
 })
 
-// Hover instructions
+// Change cursor
 pads.forEach(function(pad) {
-  addEventListener('mouseover', instructions)
+  addEventListener('mouseover', changeCursor)
 })
 
-pads.forEach(function(pad) {
-  addEventListener('click', instructions)
-})
-
-function instructions(e) {
+function changeCursor(e) {
   if (e.target.classList.contains('pad')) {
-    display.innerText = "Press a key to begin!"
+    document.body.style.cursor = 'pointer';
+  } else {
+    document.body.style.cursor = 'default';
   }
 }
