@@ -1,5 +1,9 @@
 :root {
   --button-shadow: 0.1em 0.1em rgb(130, 128, 128);
+  --off-white: rgb(249, 244, 236);
+  --medium-gray: rgb(183, 185, 182);
+  --dark-gray: rgb(75, 75, 75);
+  --dark-shadow: rgb(48, 48, 48);
 }
 
 #container {
@@ -9,20 +13,22 @@
 
 #mpc-body {
   text-align: center;
-  background-color: rgb(249, 244, 236);
+  background-color: var(--off-white);
   position: relative;
   margin: auto;
   padding: 1.5em;
-  border: 2px solid blackrgb(175, 170, 158);
+  border: 1px solid rgb(175, 170, 158);
   border-radius: 5px;
   width: 45em;
   height: 35em;
   grid-template-columns: 50% 50%;
+  box-shadow: 0 0 2.5em 0.1em rgb(170, 152, 136);
 }
 
 .button {
   box-shadow: var(--button-shadow);
-  border: 1px solid rgb(183, 185, 182);
+  border: 1px solid var(--medium-gray);
+  background-color: var(--off-white);
   border-radius: 2px;
 }
 
@@ -44,9 +50,11 @@
 #display {
   text-align: center;
   margin: auto;
-  background-color: rgb(183, 185, 182);
+  padding-top: 1em;
+  background-color: var(--medium-gray);
   height: 6em;
   width: 12em;
+  font-family: 'Cousine', sans-serif;
 }
 
 /* buttons under screen */
@@ -57,11 +65,11 @@
 
 #button-line .button {
   display: inline-grid;
-  background-color: rgb(249, 244, 236);
+  background-color: var(--off-white);
   width: 2em;
   height: 0.8em;
   place-self: center;
-  border: 1px solid rgb(183, 185, 182);
+  border: 1px solid var(--medium-gray);
 }
 
 /* middle panel with buttons and dial */
@@ -99,12 +107,12 @@
 }
 
 #dial {
-  background-color: rgb(64, 63, 63);
+  background-color: var(--dark-gray);
   border-radius: 50%;
   height: 8em;
   width: 8em;
   margin: auto;
-  box-shadow: 0.2em 0.1em 0.1em 0.2em rgb(48, 48, 48)
+  box-shadow: 0.2em 0.1em 0.1em 0.2em var(--dark-shadow);
 }
 
 #dial-inner-2 {
@@ -119,13 +127,13 @@
 }
 
 #dial-inner-1 {
-  border: 2px solid rgb(48, 48, 48);
+  border: 2px solid var(--dark-shadow);
   border-radius: 50%;
   height: 5.3em;
   width: 5.3em;
   margin-left: 3em;
   margin-top: -6.8em;
-  box-shadow: 0 0 0.1em 0.1em rgb(48, 48, 48)
+  box-shadow: 0 0 0.1em 0.1em var(--dark-shadow);
 }
 
 /* bottom panel with slider and buttons */
@@ -146,23 +154,23 @@
 }
 
 #slider-bar {
-  background-color: rgb(78, 77, 77);
+  background-color: var(--dark-gray);
   width: 0.3em;
   height: 9em;
   margin: auto;
-  z-index: 1;
+  z-index: 0;
 }
 
 #slider-knob {
   position: relative;
   width: 2.3em;
   height: 1.5em;
-  background-color: rgb(249, 244, 236);
+  background-color: var(--off-white);
   border: 1px solid rgb(120, 119, 119);
-  z-index: 2;
+  z-index: 1;
   margin-top: -5em;
   margin-left: 1.6em;
-  box-shadow: 0 0 0.2em 0.05em rgb(130, 128, 128);
+  box-shadow: 0 0 0.2em 0.1em var(--medium-gray);
 
 }
 
@@ -173,8 +181,6 @@
 
 #buttons-1 .button {
   display: inline-grid;
-  border: 1px solid rgb(183, 185, 182);
-  background-color: rgb(249, 244, 236);
   width: 2em;
   height: 1em;
   place-self: center;
@@ -188,8 +194,6 @@
 }
 
 #arrow {
-  border: 1px solid rgb(183, 185, 182);
-  background-color: rgb(249, 244, 236);
   width: 4em;
   height: 3em;
   justify-self: center;
@@ -266,7 +270,7 @@
 
 /* right side control panel */
 #right-ctrl {
-  background-color: rgb(197, 198, 197);
+  background-color: var(--medium-gray);
   margin: 0.5em;
   grid-template-columns: 25% 25% 25% 25%;
   grid-auto-rows: auto;
@@ -274,7 +278,6 @@
 }
 
 #right-ctrl .button {
-  background-color: rgb(249, 244, 236);
   width: 2.5em;
   height: 1.2em;
   place-self: center;
@@ -306,21 +309,19 @@
   margin: 0.25em;
   padding-top: 1.8em;
   border-radius: 3px;
-  box-shadow: inset 0 0 0.5em rgb(75, 75, 75);
-  box-shadow: 2px 2px 0 rgb(75, 75, 75);
+  box-shadow: inset 0 0 0.5em var(--dark-gray);
+  box-shadow: 2px 2px 0 var(--dark-gray);
 }
 
 /* button and key presses */
-
 .pressed {
   transform: scale(0.92);
   transform: translateY(3px) translateX(1px);
-  box-shadow: inset 0.1em 0.1em 0.5em 0.1em rgb(75, 75, 75);
+  box-shadow: inset 0.1em 0.1em 0.6em 0.2em var(--dark-gray);
 }
 
 .btn-pressed {
-  transform: scale(0.92);
-  transform: translateY(3px) translateX(1px);
+  transform: translateY(2px) translateX(1px);
 }
 
 /* footer */
@@ -335,10 +336,6 @@ footer {
   display: grid;
 }
 
-.inline-grid {
-  display: inline-grid;
-}
-
 .br-2 {
   border-radius: 2px;
 }
@@ -348,7 +345,7 @@ footer {
 }
 
 .bg-white {
-  background-color: rgb(249, 244, 236);
+  background-color: var(--off-white);
 }
 
 .bg-salmon {
@@ -365,5 +362,5 @@ footer {
 
 .sm-button {
   border: 1px solid rgb(183, 185, 182);
-  box-shadow: 0.1em 0.1em rgb(130, 128, 128);
+  box-shadow: var(--button-shadow);
 }
