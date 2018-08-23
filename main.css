@@ -115,6 +115,16 @@
   box-shadow: 0.2em 0.1em 0.1em 0.2em var(--dark-shadow);
 }
 
+#dial-inner-1 {
+  border: 2px solid var(--dark-shadow);
+  border-radius: 50%;
+  height: 5.3em;
+  width: 5.3em;
+  margin-left: 3em;
+  margin-top: -6.8em;
+  box-shadow: 0 0 0.1em 0.1em var(--dark-shadow);
+}
+
 #dial-inner-2 {
   position: relative;
   background-color: rgb(85, 85, 85);
@@ -124,16 +134,6 @@
   box-shadow: inset -0.2em 0.1em 0.3em 0.3em rgb(57, 57, 57);
   margin-left: 2.7em;
   margin-top: -6em;
-}
-
-#dial-inner-1 {
-  border: 2px solid var(--dark-shadow);
-  border-radius: 50%;
-  height: 5.3em;
-  width: 5.3em;
-  margin-left: 3em;
-  margin-top: -6.8em;
-  box-shadow: 0 0 0.1em 0.1em var(--dark-shadow);
 }
 
 /* bottom panel with slider and buttons */
@@ -171,7 +171,20 @@
   margin-top: -5em;
   margin-left: 1.6em;
   box-shadow: 0 0 0.2em 0.1em var(--medium-gray);
+}
 
+#slider-knob:hover {
+  animation-name: slide;
+  animation-duration: 2s;
+}
+
+@keyframes slide {
+  33% {
+    transform: translateY(-2em);
+  }
+  66% {
+    transform: translateY(2em);
+  }
 }
 
 #buttons-1 {
@@ -315,6 +328,7 @@
 
 /* button and key presses */
 .pressed {
+  transition-duration: 0.15s;
   transform: scale(0.92);
   transform: translateY(3px) translateX(1px);
   box-shadow: inset 0.1em 0.1em 0.6em 0.2em var(--dark-gray);
