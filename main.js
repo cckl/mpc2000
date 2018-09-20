@@ -1,6 +1,6 @@
-const pads = document.querySelectorAll('.pad')
-const buttons = document.querySelectorAll('.button')
-const display = document.getElementById('display')
+const $pads = $('.pad')
+const $buttons = $('.button')
+const display = $('#display')
 const sounds = {
   65: {
     char: 'A',
@@ -100,8 +100,7 @@ const sounds = {
   }
 }
 
-display.innerText = "Press a key or click a pad to begin!"
-
+display.html('Press a key or click a pad to begin!')
 
 // Play sounds
 function playSound(code) {
@@ -110,62 +109,61 @@ function playSound(code) {
   sound.play();
   sound.volume = sounds[code].vol;
   sound.currentTime = 0;
-  display.innerText = text;
+  display.html(text);
 }
 
 // Trigger sounds on key press
-document.addEventListener('keydown', keyPress)
+$(document).on('keydown', keyPress)
 
 function keyPress(e) {
-  let key = document.querySelector(`.pad[data-key='${e.keyCode}']`);
+  let $key = $(`.pad[data-key='${e.keyCode}']`);
+  let key = $key[0];
   let code = e.keyCode;
-  if (key === null) {
+  if (key === undefined) {
     return
   }
-  key.classList.add('pressed');
+  $key.addClass('pressed');
   playSound(code);
 }
 
 // Trigger sounds on pad click
-pads.forEach(function(pad) {
-  addEventListener('click', padClick)
+$pads.each(function(index, pad) {
+  $(pad).on('click', padClick)
 })
 
 function padClick(e) {
-  if (e.target.className === 'pad') {
-    let code = e.target.dataset.key;
-    e.target.classList.add('pressed');
+  if ($(e.target).hasClass('pad')) {
+    let code = $(e.target)[0].dataset.key;
+    $(e.target).addClass('pressed');
     playSound(code);
   }
 }
 
 // Remove pressed CSS class
-pads.forEach(function(pad) {
-  pad.addEventListener('transitionend', removePressed)
+$pads.each(function(index, pad) {
+  $(pad).on('transitionend', removePressed)
 })
 
 function removePressed(e) {
-  e.target.classList.remove('pressed');
+  $(e.target).removeClass('pressed');
 }
 
 // Clicks for buttons
 function pressBtn(e) {
-  e.target.classList.toggle('btn-pressed');
+  $(e.target).toggleClass('btn-pressed');
 }
 
-buttons.forEach(function(button) {
-  button.addEventListener('click', pressBtn)
+$buttons.each(function(index, button) {
+  $(button).on('click', pressBtn)
 })
 
 // Change cursor
-pads.forEach(function(pad) {
-  addEventListener('mouseover', changeCursor)
-})
+$(document).on('mouseover', changeCursor)
 
 function changeCursor(e) {
-  if (e.target.classList.contains('pad')) {
-    document.body.style.cursor = 'pointer';
+  if ($(e.target).hasClass('pad')) {
+    $('body').css('cursor', 'pointer')
   } else {
-    document.body.style.cursor = 'default';
+    $('body').css('cursor', 'default')
   }
 }
