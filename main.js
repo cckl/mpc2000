@@ -1,6 +1,6 @@
 const pads = document.querySelectorAll('.pad')
 const buttons = document.querySelectorAll('.button')
-const display = document.getElementById('display')
+const displayTxt = document.getElementById('display-txt')
 const sounds = {
   65: {
     char: 'A',
@@ -100,7 +100,7 @@ const sounds = {
   }
 }
 
-display.innerText = "Press a key or click a pad to begin!"
+displayTxt.innerText = "Press a key or click a pad to begin!"
 
 
 // Play sounds
@@ -110,7 +110,7 @@ function playSound(code) {
   sound.play();
   sound.volume = sounds[code].vol;
   sound.currentTime = 0;
-  display.innerText = text;
+  displayTxt.innerText = text;
 }
 
 // Trigger sounds on key press
