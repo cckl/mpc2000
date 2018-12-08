@@ -1,6 +1,6 @@
 const $pads = $('.pad')
 const $buttons = $('.button')
-const display = $('#display')
+const display = $('#display-txt')
 const sounds = {
   65: {
     char: 'A',
